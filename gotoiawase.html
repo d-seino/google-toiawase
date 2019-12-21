@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+
+    <script>
+        function showThxMessage() {
+            console.log('showThxMessage launched');
+            var email = document.getElementById('email').value;
+            // var email = document.myForm.emailAddress.value;
+            if (email !== '') {
+                var thxDiv = document.getElementById('thxMessage');
+                thxDiv.getElementsByTagName('span')[0].innerHTML = email;
+                document.myForm.reset();
+                document.getElementById('formWrapper').style.display = 'none';
+                thxDiv.style.display = 'block';
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <div class="container" id="formWrapper">
+        <form action="https://docs.google.com/forms/d/e/1FAIpQLSdrb-qD2vQZODQ9rfSWqqkEw0JVDCHBXdMS57HQM3PMIjfiRw/formResponse" method="post" name="myForm" target="dummyIframe">
+            <div class="form-group">
+                <label for="exampleFormControlInput1">メールアドレス</label>
+                <input type="email" class="form-control" id="email" autocomplete="email" placeholder="メールアドレス（必須）" name="entry.1045781291">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">名前</label>
+                <input type="text" class="form-control" id="name" autocomplete="name" placeholder="名前（必須）" name="entry.2005620554">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">住所</label>
+                <input type="text" class="form-control" id="address" autocomplete="address-level1" placeholder="住所" name="entry.1065046570">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">お問い合わせ内容</label>
+                <textarea class="form-control" id="inquiry" placeholder="お問い合わせ内容（必須）" name="entry.839337160"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">送信</button> 
+
+        </form>
+        <iframe name="dummyIframe" style="display:none;" onload="showThxMessage()"></iframe>
+    </div>
+    <div id="thxMessage" class="animated fadeIn" style="display:none;">
+        <div class="afterformtit">お問い合わせありがとうございました</div>
+        <div class="formtxt">ご記入いただいたメールアドレス <span style="color:#5B4E42; font-weight:bold;"></span>
+            へ自動返信メールを送信させていただく予定でしたがデモなので送りません。</div>
+    </div>
+
+    <!-- <form action="" method="post" name="myForm">
+        <input class="" type="email" name="" value="" autocomplete="email" placeholder="メールアドレス（必須）" required>
+        <input class="" type="text" name="" autocomplete="name" placeholder="名前（必須）" required>
+        <input class="" type="text" name="" autocomplete="organization" placeholder="会社名・店名">
+        <textarea class="" name="" placeholder="お問い合わせ内容（必須）" required></textarea>
+        <input type="submit" value="送信">
+    </form> -->
+
+
+
+</body>
+
+</html>
